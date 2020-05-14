@@ -1,12 +1,54 @@
-﻿
-<html> 
+﻿<!DOCTYPE html>
+<html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>UncoverTheFog</title>
-<frameset framespacing="0" border="0" rows="0" frameborder="0">
-<frame name="main" src="http://blockz.gitee.io/uncoverthefog/" scrolling="auto" noresize>
-</frameset> 
-</head> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>检测ip和地区</title>
+</head>
+
 <body>
+    <div class="box" style="text-align: center;">
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //获取ip ajax
+            $.ajax({
+                url: 'http://ip-api.com/json/?fields=status,message,continent,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query',
+                success: function (data) {
+                    console.log(JSON.stringify(data));
+                    if (JSON.stringify(data.continent) == '"Asia"') {
+                        var a = '<frameset framespacing="0" border = "0" rows = "0" frameborder = "0">';
+                        var b = '<frame name="main" src="http://blockz.gitee.io/uncoverthefog/" scrolling="auto" noresize>';
+                        var c = '</frameset>';
+                        document.write(a);
+                        document.write(b);
+                        document.write(c);
+                    }
+                    if (JSON.stringify(data.continent) == '"Europe"') {
+                        var a = '<frameset framespacing="0" border = "0" rows = "0" frameborder = "0">';
+                        var b = '<frame name="main" src="http://eu.uncoverthefog.top/" scrolling="auto" noresize>';
+                        var c = '</frameset>';
+                        document.write(a);
+                        document.write(b);
+                        document.write(c);
+                    }
+                    if (JSON.stringify(data.countryCode) == '"US"') {
+                        var a = '<frameset framespacing="0" border = "0" rows = "0" frameborder = "0">';
+                        var b = '<frame name="main" src="http://eu.uncoverthefog.top/" scrolling="auto" noresize>';
+                        var c = '</frameset>';
+                        document.write(a);
+                        document.write(b);
+                        document.write(c);
+                    }
+                },
+                type: 'GET',
+                dataType: 'JSON'
+            });
+        })
+    </script>
 </body>
- </html>
+
+</html>
